@@ -1,0 +1,7 @@
+name: NS2Core
+version: '${project.version}'
+main: dev.goldenedit.ns2core.NS2Core
+api-version: 1.17
+authors: [ GoldenEdit ]
+description: Nations 2 Core for jjkay03
+website: https://goldenedit.dev
