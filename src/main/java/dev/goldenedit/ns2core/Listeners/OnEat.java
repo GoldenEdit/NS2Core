@@ -11,10 +11,10 @@ import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class onEat implements Listener {
+public class OnEat implements Listener {
     private final NS2Core plugin;
 
-    public onEat(NS2Core plugin) {
+    public OnEat(NS2Core plugin) {
         this.plugin = plugin;
     }
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)

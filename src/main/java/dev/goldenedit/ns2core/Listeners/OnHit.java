@@ -10,10 +10,10 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class onHit implements Listener {
+public class OnHit implements Listener {
     private final NS2Core plugin;
 
-    public onHit(NS2Core plugin) {
+    public OnHit(NS2Core plugin) {
         this.plugin = plugin;
     }
 

@@ -11,10 +11,10 @@ import org.bukkit.potion.PotionEffectType;
 
 import java.util.List;
 
-public class onSneak implements Listener {
+public class OnSneak implements Listener {
     private final NS2Core plugin;
 
-    public onSneak(NS2Core plugin) {
+    public OnSneak(NS2Core plugin) {
         this.plugin = plugin;
     }
 

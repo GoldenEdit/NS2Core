@@ -4,11 +4,9 @@ package dev.goldenedit.ns2core;
 import dev.goldenedit.ns2core.Listeners.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
@@ -26,13 +24,13 @@ public final class NS2Core extends JavaPlugin implements Listener {
     public void onEnable() {
         this.getLogger().info("NS2 Core has started");
         this.getLogger().info("https://goldenedit.dev");
-        this.getServer().getPluginManager().registerEvents(new onPlayerMove(this), this);
-        this.getServer().getPluginManager().registerEvents(new onEat(this), this);
-        this.getServer().getPluginManager().registerEvents(new onSneak(this), this);
-        this.getServer().getPluginManager().registerEvents(new onJoin(this), this);
-        this.getServer().getPluginManager().registerEvents(new onHit(this), this);
-        this.getServer().getPluginManager().registerEvents(new onEntityDamage(this), this);
-        this.getServer().getPluginManager().registerEvents(new onLeave(this), this);
+        this.getServer().getPluginManager().registerEvents(new OnPlayerMove(this), this);
+        this.getServer().getPluginManager().registerEvents(new OnEat(this), this);
+        this.getServer().getPluginManager().registerEvents(new OnSneak(this), this);
+        this.getServer().getPluginManager().registerEvents(new OnJoin(this), this);
+        this.getServer().getPluginManager().registerEvents(new OnHit(this), this);
+        this.getServer().getPluginManager().registerEvents(new OnEntityDamage(this), this);
+        this.getServer().getPluginManager().registerEvents(new OnLeave(this), this);
         new BukkitRunnable() {
             public void run() {
                 for (Player p : Bukkit.getOnlinePlayers()) {
@@ -65,7 +63,7 @@ public final class NS2Core extends JavaPlugin implements Listener {
         new BukkitRunnable() {
             public void run() {
                 for (Player p : Bukkit.getOnlinePlayers()) {
-                    if (p.getWorld().hasStorm() == true) {
+                    if (p.getWorld().hasStorm()) {
                         if (p.hasPermission("n2.plain")) {
                             p.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, Integer.MAX_VALUE, 0, true, true));
                         }
@@ -108,7 +106,7 @@ public final class NS2Core extends JavaPlugin implements Listener {
             public void run() {
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     if (p.hasPermission("n2.waste")) {
-                        if (p.getWorld().isDayTime() == true) {
+                        if (p.getWorld().isDayTime()) {
                             p.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, Integer.MAX_VALUE, 0, true, true));
                         } else {
                             p.removePotionEffect(PotionEffectType.WEAKNESS);

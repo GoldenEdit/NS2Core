@@ -7,10 +7,10 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 
-public class onEntityDamage implements Listener {
+public class OnEntityDamage implements Listener {
     private final NS2Core plugin;
 
-    public onEntityDamage(NS2Core plugin) {
+    public OnEntityDamage(NS2Core plugin) {
         this.plugin = plugin;
     }
 

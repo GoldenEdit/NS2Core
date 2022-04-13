@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class onJoin implements Listener {
+public class OnJoin implements Listener {
 
     public static String chatColors(String str) {
         Pattern unicode = Pattern.compile("\\\\u\\+[a-fA-F0-9]{4}");
@@ -33,7 +33,7 @@ public class onJoin implements Listener {
 
     private final NS2Core plugin;
 
-    public onJoin(NS2Core plugin) {
+    public OnJoin(NS2Core plugin) {
         this.plugin = plugin;
     }
 

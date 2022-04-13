@@ -9,15 +9,15 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-public class onPlayerMove implements Listener {
+public class OnPlayerMove implements Listener {
     private final NS2Core plugin;
 
-    public onPlayerMove(NS2Core plugin) {
+    public OnPlayerMove(NS2Core plugin) {
         this.plugin = plugin;
     }
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPlayerMove(PlayerMoveEvent e) {
-        if(e.getPlayer().getLocation().isChunkLoaded() == true){
+        if(e.getPlayer().getLocation().isChunkLoaded()){
             Player p = e.getPlayer();
             Material m = e.getPlayer().getLocation().getBlock().getType();
             if (m == Material.WATER) {

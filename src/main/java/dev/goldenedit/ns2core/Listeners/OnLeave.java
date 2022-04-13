@@ -11,11 +11,11 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class onLeave implements Listener {
+public class OnLeave implements Listener {
 
     private final NS2Core plugin;
 
-    public onLeave(NS2Core plugin) {
+    public OnLeave(NS2Core plugin) {
         this.plugin = plugin;
     }
 
