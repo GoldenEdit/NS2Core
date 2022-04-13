@@ -32,6 +32,7 @@ public final class NS2Core extends JavaPlugin implements Listener {
         this.getServer().getPluginManager().registerEvents(new onJoin(this), this);
         this.getServer().getPluginManager().registerEvents(new onHit(this), this);
         this.getServer().getPluginManager().registerEvents(new onEntityDamage(this), this);
+        this.getServer().getPluginManager().registerEvents(new onLeave(this), this);
         new BukkitRunnable() {
             public void run() {
                 for (Player p : Bukkit.getOnlinePlayers()) {
@@ -64,14 +65,16 @@ public final class NS2Core extends JavaPlugin implements Listener {
         new BukkitRunnable() {
             public void run() {
                 for (Player p : Bukkit.getOnlinePlayers()) {
-                    if (p.hasPermission("n2.plain")) {
-                        if (p.getWorld().hasStorm() == true) {
+                    if (p.getWorld().hasStorm() == true) {
+                        if (p.hasPermission("n2.plain")) {
                             p.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, Integer.MAX_VALUE, 0, true, true));
-                        } else {
+                        }
+                    } else {
+                        if (p.hasPermission("n2.plain")) {
                             p.removePotionEffect(PotionEffectType.WEAKNESS);
                         }
-
                     }
+
                 }
             }
         }.runTaskTimer(this, 0, 40);
@@ -94,7 +97,7 @@ public final class NS2Core extends JavaPlugin implements Listener {
                                     p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 160, 2, true, false));
                                 }
                             }
-                        } else if (p.isSneaking() == false) {
+                        } else if (!p.isSneaking()) {
                             sneak.put(p, 0);
                         }
                     }

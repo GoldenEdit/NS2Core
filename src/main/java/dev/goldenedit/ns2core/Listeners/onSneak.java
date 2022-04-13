@@ -22,9 +22,9 @@ public class onSneak implements Listener {
     public void onSneak(PlayerToggleSneakEvent e) {
         Player p = e.getPlayer();
         if(p.hasPermission("n2.plain")){
-            if(p.isSneaking() == false){
+            if(!p.isSneaking()){
                 p.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 1, true, false));
-            }else if (p.isSneaking() == true){
+            }else if (!p.isSneaking()){
                 p.removePotionEffect(PotionEffectType.FAST_DIGGING);
             }
         }
